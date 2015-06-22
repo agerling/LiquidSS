@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:form id="formCadPessoa">
+
+	<h:messages />
+
+	<h:panelGrid columns="2">
+
+		<f:facet name="header">
+			<h:outputText value="Cadastro de Pessoa" />
+		</f:facet>
+		
+		<h:outputText value="Nome:" />
+		<h:inputText id="inputNome" value="#{pessoaController.pessoa.nome}"
+			size="40" maxlength="100" />
+
+		<h:outputText value="CPF:" />
+		<h:inputText id="inputCpf" value="#{pessoaController.pessoa.cpf}"
+			size="20" maxlength="11" required="true" />
+
+		<h:outputText value="RG:" />
+		<h:inputText id="inputRg" value="#{pessoaController.pessoa.rg}"
+			size="20" maxlength="20" />
+
+		<h:outputText value="UF/RG:" />
+		<h:inputText id="inputUfrg" value="#{pessoaController.pessoa.ufrg}"
+			size="5" maxlength="2" />
+
+		<h:outputText value="CNPJ:" />
+		<h:inputText id="inputCnpj" value="#{pessoaController.pessoa.cnpj}"
+			size="20" maxlength="14" />
+
+
+
+
+	</h:panelGrid>
+
+	<h:panelGrid columns="3">
+
+		<h:commandButton value="Incluir" 
+						 action="#{pessoaController.gravar}"  
+						 rendered="#{pessoaController.pessoa.pkPessoa == null}"/>
+
+		<h:commandButton value="Alterar" 
+						 action="#{pessoaController.alterar}" 
+						 rendered="#{pessoaController.pessoa.pkPessoa != null}"/>
+
+		<h:commandButton value="Limpar" />
+
+		<h:commandButton value="Cancelar" />
+
+	</h:panelGrid>
+
+</h:form>
+
+</html>
+
